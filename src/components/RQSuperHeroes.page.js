@@ -6,10 +6,15 @@ const fetchSuperHeroes = () => {
 };
 
 export const RQSSuperHeroesPage = () => {
-  const { isError, data, isLoading, error } = useQuery(
+  const { isError, data, isLoading, error, isFetching } = useQuery(
     "super-heroes",
-    fetchSuperHeroes
+    fetchSuperHeroes,
+    {
+      cacheTime: 5000,
+    }
   );
+
+  console.log({ isLoading, isFetching });
 
   if (isLoading) {
     return <h2>Loading...</h2>;
@@ -23,7 +28,7 @@ export const RQSSuperHeroesPage = () => {
     <>
       <h2>RQ Super Heroes</h2>
       {data?.data.map((hero) => (
-        <div key={data.id}>{hero.name}</div>
+        <div key={data.name}>{hero.name}</div>
       ))}
     </>
   );

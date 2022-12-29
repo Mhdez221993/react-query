@@ -32,7 +32,7 @@ export const SuperHeroesPage = () => {
     <>
       <h2>Super Heroes Page</h2>
       {data.map((hero) => (
-        <div key={hero.id}>{hero.name}</div>
+        <div key={hero.name}>{hero.name}</div>
       ))}
     </>
   );
