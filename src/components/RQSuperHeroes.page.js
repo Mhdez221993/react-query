@@ -10,7 +10,7 @@ export const RQSSuperHeroesPage = () => {
   const [polling, setPolling] = useState(3000);
 
   const onSuccess = (data) => {
-    if (data.data.length === 4) {
+    if (data.length === 4) {
       setPolling(false);
     }
     console.log("Perform side effect after data fetching", data);
@@ -34,6 +34,10 @@ export const RQSSuperHeroesPage = () => {
       // enabled: false,
       onError,
       onSuccess,
+      select: (data) => {
+        const heroNames = data.data.map((hero) => hero.name);
+        return heroNames;
+      },
     }
   );
 
@@ -50,9 +54,13 @@ export const RQSSuperHeroesPage = () => {
   return (
     <>
       <h2>RQ Super Heroes</h2>
-      <button onClick={refetch}>Fetch Heroes</button>
-      {data?.data.map((hero) => (
+      {/* <button onClick={refetch}>Fetch Heroes</button> */}
+      {/* {data?.data.map((hero) => (
         <div key={data.name}>{hero.name}</div>
+      ))} */}
+
+      {data.map((heroName) => (
+        <div key={heroName}>{heroName}</div>
       ))}
     </>
   );
