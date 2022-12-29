@@ -10,8 +10,12 @@ export const RQSSuperHeroesPage = () => {
     "super-heroes",
     fetchSuperHeroes,
     {
-      refetchOnMount: true,
-      refetchOnWindowFocus: true,
+      // cacheTime: 5000,
+      // staleTime: 1000,
+      // refetchOnMount: true,
+      // refetchOnWindowFocus: true,
+      // refetchInterval: 2000,
+      // refetchIntervalInBackground: true,
     }
   );
 
