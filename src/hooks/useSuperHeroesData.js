@@ -16,9 +16,9 @@ export const useSuperHeroData = (onSuccess, onError) => {
     // enabled: false,
     onError,
     onSuccess,
-    select: (data) => {
-      const heroNames = data.data.map((hero) => hero.name);
-      return heroNames;
-    },
+    // select: (data) => {
+    //   const heroNames = data.data.map((hero) => hero.name);
+    //   return heroNames;
+    // },
   });
 };
