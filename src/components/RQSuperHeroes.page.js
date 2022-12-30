@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 import { useState } from "react";
-import { useSuperHeroData } from "../hooks/useSuperHeroData";
+import { useSuperHeroData } from "../hooks/useSuperHeroesData";
 
 export const RQSSuperHeroesPage = () => {
   const [polling, setPolling] = useState(3000);
@@ -31,13 +32,15 @@ export const RQSSuperHeroesPage = () => {
     <>
       <h2>RQ Super Heroes</h2>
       {/* <button onClick={refetch}>Fetch Heroes</button> */}
-      {/* {data?.data.map((hero) => (
-        <div key={data.name}>{hero.name}</div>
-      ))} */}
-
-      {data.map((heroName) => (
-        <div key={heroName}>{heroName}</div>
+      {data?.data.map((hero) => (
+        <div key={hero.id}>
+          <Link to={`/rq-super-heroes/${hero.id}`}>{hero.name}</Link>
+        </div>
       ))}
+
+      {/* {data.map((heroName) => (
+        <div key={heroName}>{heroName}</div>
+      ))} */}
     </>
   );
 };
