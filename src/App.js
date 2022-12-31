@@ -4,6 +4,7 @@ import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 import { HomePage } from "./components/Home.page";
+import { ParallelQueries } from "./components/ParallelQueries.Page";
 import { RQSSuperHeroesPage } from "./components/RQSuperHeroes.page";
 import { RQSuperHeroPage } from "./components/RQSuperHero.page";
 import { ReactQueryDevtools } from "react-query/devtools";
@@ -33,13 +34,14 @@ function App() {
           </nav>
 
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route path="/rq-parallel" element={<ParallelQueries />} />
             <Route path="/super-heroes" element={<SuperHeroesPage />} />
             <Route path="/rq-super-heroes" element={<RQSSuperHeroesPage />} />
             <Route
               path="/rq-super-heroes/:heroId"
               element={<RQSuperHeroPage />}
             />
+            <Route path="/" element={<HomePage />} />
           </Routes>
         </div>
       </Router>
