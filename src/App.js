@@ -3,6 +3,7 @@ import "./App.css";
 import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 
+import { DependentQueriesPage } from "./components/DependentQueries.pages";
 import { DinamicParallePage } from "./components/DinamicParallel.page";
 import { HomePage } from "./components/Home.page";
 import { ParallelQueries } from "./components/ParallelQueries.Page";
@@ -35,6 +36,10 @@ function App() {
           </nav>
 
           <Routes>
+            <Route
+              path="/rq-dependent"
+              element={<DependentQueriesPage email="doe@gmail.com" />}
+            />
             <Route
               path="/rq-dynamic-parallel"
               element={<DinamicParallePage heroIds={[1, 3]} />}
