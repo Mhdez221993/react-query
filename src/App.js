@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { DependentQueriesPage } from "./components/DependentQueries.pages";
 import { DinamicParallePage } from "./components/DinamicParallel.page";
 import { HomePage } from "./components/Home.page";
+import { InfiniteQueriesPages } from "./components/InfiniteQueries.page";
 import { PaginatedQueriesPage } from "./components/PaginatedQueries.page";
 import { ParallelQueries } from "./components/ParallelQueries.Page";
 import { RQSSuperHeroesPage } from "./components/RQSuperHeroes.page";
@@ -37,6 +38,7 @@ function App() {
           </nav>
 
           <Routes>
+            <Route path="/rq-infinite" element={<InfiniteQueriesPages />} />
             <Route path="/rq-paginated" element={<PaginatedQueriesPage />} />
             <Route
               path="/rq-dependent"
